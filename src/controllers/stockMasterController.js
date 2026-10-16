@@ -229,13 +229,20 @@ export const restockStock = async (req, res) => {
     }
 
     // Save restock history
+    // restockRecord = await StockMasterRestock.create({
+    //   stockMasterId: stock._id,
+    //   restockDate,
+    //   location: location.trim(),
+    //   updatedBy: updatedBy.trim(),
+    //   restockQty,
+    // });
     restockRecord = await StockMasterRestock.create({
-      stockMasterId: stock._id,
-      restockDate,
-      location: location.trim(),
-      updatedBy: updatedBy.trim(),
-      restockQty,
-    });
+  productId: stock.productId,
+  restockDate,
+  location: location.trim(),
+  updatedBy: updatedBy.trim(),
+  restockQty,
+});
 
     // Increase total quantity and available balance
     stock.totalQty += restockQty;

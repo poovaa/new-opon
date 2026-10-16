@@ -4,16 +4,16 @@ import mongoose from "mongoose";
 const stockMasterTransactionSchema = new mongoose.Schema(
   {
     stockMasterId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "StockMaster",
+      type: String,
       required: true,
+      trim: true,
       index: true,
     },
 
     lccMasterId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "LCCMaster",
+      type: String,
       required: false,
+      trim: true,
     },
 
     transactionId: {
@@ -34,19 +34,15 @@ const stockMasterTransactionSchema = new mongoose.Schema(
       default: Date.now,
     },
 
-    location: {
+    sourceLocation: {
       type: String,
       required: true,
       trim: true,
     },
 
-    sourceLocation: {
-      type: String,
-      trim: true,
-    },
-
     destinationLocation: {
       type: String,
+      required: true,
       trim: true,
     },
 

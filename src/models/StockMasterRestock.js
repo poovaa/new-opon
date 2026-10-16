@@ -10,12 +10,19 @@ const stockMasterRestockSchema = new mongoose.Schema(
       trim: true,
     },
 
-    stockMasterId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "StockMaster",
-      required: true,
-      index: true,
-    },
+    // stockMasterId: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: "StockMaster",
+    //   required: true,
+    //   index: true,
+    // },
+
+    productId: {
+  type: String,
+  required: true,
+  trim: true,
+  index: true,
+},
 
     restockDate: {
       type: Date,
